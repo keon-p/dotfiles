@@ -80,16 +80,20 @@ if has('vim_starting')
   call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundleFetch 'Shougo/neobundle.vim'
   call neobundle#end()
-  " call neobundle#rc(expand('~/.vim/bundle'))
 endif
+
+call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundle 'airblade/vim-gitgutter'
+call neobundle#end()
 map <silent><F12> :GitGutterLineHighlightsToggle<cr>
 map <silent><F10> <Plug>GitGutterNextHunk
 map <silent><F11> <Plug>GitGutterPrevHunk
 
 
 " Ctrl-e で Toggle. ▼の文字化け対策 
+call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundle 'scrooloose/nerdtree'
+call neobundle#end()
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 " if &termencoding !=# 'utf-8'
   " let g:NERDTreeDirArrows=0
@@ -97,14 +101,18 @@ nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
 
 " ,, でコメントの切り替え
+call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundle 'scrooloose/nerdcommenter'
+call neobundle#end()
 let NERDSpaceDelims = 1
 nmap ,, <Plug>NERDCommenterToggle
 vmap ,, <Plug>NERDCommenterToggle
 
 
 " インデントに着色
+call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundle 'nathanaelkane/vim-indent-guides'
+call neobundle#end()
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_start_level=2
 let g:indent_guides_auto_colors=0
@@ -124,7 +132,9 @@ set background=dark
 " highlight LineNr ctermfg=darkgrey
 
 "" solarized color
+call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundle 'altercation/vim-colors-solarized'
+call neobundle#end()
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 colorscheme solarized
@@ -136,6 +146,7 @@ set cursorline
 " NeoBundle 'joonty/vdebug'
 
 "http://qiita.com/alpaca_taichou/items/ab2ad83ddbaf2f6ce7fb
+call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundle 'Shougo/vimproc', { 'build' : { 'mac' : 'make -f make_mac.mak', 'unix' : 'make -f make_unix.mak', }, }
 NeoBundle 'tpope/vim-rails', { 'autoload' : {'filetypes' : ['haml', 'ruby', 'eruby'] }}
 NeoBundle 'alpaca-tc/vim-endwise.git', { 'autoload' : { 'insert' : 1, }}
@@ -147,8 +158,9 @@ NeoBundleLazy 'alpaca-tc/alpaca_tags', {
       \   'commands' : ['AlpacaTags', 'AlpacaTagsUpdate', 'AlpacaTagsSet', 'AlpacaTagsBundle', 'AlpacaTagsCleanCache'],
       \   'unite_sources' : ['tags']
       \ }}
-NeoBundle "git://github.com/Shougo/neocomplcache.git"
-NeoBundle "git://github.com/tsukkee/unite-tag.git"
+NeoBundle "https://github.com/Shougo/neocomplcache.git"
+NeoBundle "https://github.com/tsukkee/unite-tag.git"
+call neobundle#end()
 
 " *.php を読み込んだ際に symfony のタグを読み込む
 " ctags -R -f ~/.tags.symfony --langmap=PHP:.php.inc /usr/local/symfony/1.4
